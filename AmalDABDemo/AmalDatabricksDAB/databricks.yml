@@ -1,0 +1,73 @@
+# Databricks asset bundle definition for amaldatabricks
+
+bundle:
+  name: amaldatabricks
+  uuid: 98bee946-7642-4fd2-beb9-d89c27ed0c2c
+
+include:
+  - resources/*.yml
+  - resources/*/*.yml
+  - config/*.yml
+
+targets:
+  dev:
+    # Development mode to create a dev copy,
+    # prefixing deployed resources with [dev my_user_name],
+    # and pausing schedules/triggers by default.
+    mode: development
+
+    presets:
+
+      source_linked_deployment: false
+      name_prefix: '[${workspace.current_user.short_name}]_'
+      tags:
+        amal_environment: dev
+        amal_owner : DataEngineering
+
+
+    default: true
+
+    workspace:
+      host: https://adb-201068313543333.13.azuredatabricks.net
+      root_path: /Workspace/Users/pandi.anbu@avatest.in/dev_amaldatabricks/dev_deployment/.bundle/${bundle.name}/${bundle.target}
+
+    permissions: 
+        - group_name: DataEngineering
+          level: CAN_MANAGE
+        - group_name: DataEngineering-Contractors
+          level: CAN_MANAGE
+  qa:
+
+    presets:
+      source_linked_deployment: false
+      tags:
+        amal_environment: QA
+        amal_owner : DataEngineering
+
+    workspace:
+      host: https://adb-201068313543333.13.azuredatabricks.net
+      root_path: /Workspace/Users/pandi.anbu@avatest.in/dev_amaldatabricks/qa_deployment/.bundle/${bundle.name}/${bundle.target}
+
+    permissions: 
+        - group_name: DataEngineering
+          level: CAN_MANAGE
+        - group_name: DataEngineering-Contractors
+          level: CAN_MANAGE
+
+
+  prod:
+    mode: production
+    run_as:
+      service_principal_name: a7923e63-e14c-4c32-87cc-e89e3b4a165a
+    variables:
+      catalog_name:
+        default: ab_prod_catalog
+      email_notifications:
+        default: pandi.anbu@zeb.co
+    workspace:
+      host: https://adb-201068313543333.13.azuredatabricks.net
+      # Explicit deployment path to avoid multiple copies
+      root_path: /Workspace/prod/AMAL_DAB/root_path/.bundle/${bundle.name}/${bundle.target}
+    permissions:
+      - user_name: a7923e63-e14c-4c32-87cc-e89e3b4a165a
+        level: CAN_MANAGE

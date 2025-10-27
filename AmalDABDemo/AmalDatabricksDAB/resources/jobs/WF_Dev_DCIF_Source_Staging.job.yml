@@ -37,7 +37,6 @@ resources:
             runtime_engine: STANDARD
             num_workers: 2
       tags:
-        Environment: Dev
         Source: DMI
       queue:
         enabled: true

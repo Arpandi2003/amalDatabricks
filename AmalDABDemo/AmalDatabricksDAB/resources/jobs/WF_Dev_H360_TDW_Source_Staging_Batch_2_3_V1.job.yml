@@ -183,6 +183,5 @@ resources:
               max_workers: 4
       tags:
         Batch: Batch - 2,3
-        Environment: Dev
       queue:
         enabled: true

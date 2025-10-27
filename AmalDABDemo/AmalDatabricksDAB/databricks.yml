@@ -47,6 +47,8 @@ targets:
       tags:
         amal_environment: QA
         amal_owner : DataEngineering
+    run_as: 
+      service_principal_name: a7923e63-e14c-4c32-87cc-e89e3b4a165a
 
     workspace:
       host: https://adb-201068313543333.13.azuredatabricks.net

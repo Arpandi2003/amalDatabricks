@@ -1,0 +1,5 @@
+variables:
+  catalog_name:
+    default: ab_dev_catalog
+  email_notifications:
+    default: pandi.anbu@zeb.co

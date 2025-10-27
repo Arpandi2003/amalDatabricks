@@ -42,7 +42,7 @@ targets:
   qa:
 
     presets:
-      name_prefix: '[UAT]_${worspace.current_user.short_name}]_'
+      name_prefix: '[UAT]_${workspace.current_user.short_name}]_'
       source_linked_deployment: false
       tags:
         amal_environment: QA

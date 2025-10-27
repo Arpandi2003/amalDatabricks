@@ -24,8 +24,8 @@ targets:
       source_linked_deployment: false
       name_prefix: '[${workspace.current_user.short_name}]_'
       tags:
-        amal_environment: dev
         amal_owner : DataEngineering
+        Environment: Dev
 
 
     default: true
@@ -45,8 +45,8 @@ targets:
       name_prefix: '[UAT]_${workspace.current_user.short_name}]_'
       source_linked_deployment: false
       tags:
-        amal_environment: QA
         amal_owner : DataEngineering
+        Environment : QA
     run_as: 
       service_principal_name: a7923e63-e14c-4c32-87cc-e89e3b4a165a
 
@@ -63,6 +63,11 @@ targets:
 
   prod:
     mode: production
+    presets:
+      name_prefix: '[PROD] ${workspace.current_user.short_name}]_'
+      tags:
+        amal_owner : DataEngineering
+        Environment : Prod
     run_as:
       service_principal_name: a7923e63-e14c-4c32-87cc-e89e3b4a165a
     variables:

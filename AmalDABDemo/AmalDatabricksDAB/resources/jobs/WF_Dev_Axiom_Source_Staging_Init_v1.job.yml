@@ -39,7 +39,6 @@ resources:
         git_provider: gitHubEnterprise
         git_branch: Workflows
       tags:
-        Environment: Dev
         Source: Axiom
       queue:
         enabled: true

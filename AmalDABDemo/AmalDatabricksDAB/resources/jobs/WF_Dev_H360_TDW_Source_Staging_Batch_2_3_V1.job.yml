@@ -186,5 +186,3 @@ resources:
         Environment: Dev
       queue:
         enabled: true
-      run_as:
-        user_name: dfiery@amalgamatedbank.com

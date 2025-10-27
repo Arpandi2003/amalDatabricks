@@ -16,6 +16,9 @@ targets:
     # and pausing schedules/triggers by default.
     mode: development
 
+    run_as:
+      service_principal_name: a7923e63-e14c-4c32-87cc-e89e3b4a165a
+
     presets:
 
       source_linked_deployment: false

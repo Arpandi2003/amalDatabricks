@@ -41,5 +41,3 @@ resources:
         Source: DMI
       queue:
         enabled: true
-      run_as:
-        user_name: dfiery@amalgamatedbank.com

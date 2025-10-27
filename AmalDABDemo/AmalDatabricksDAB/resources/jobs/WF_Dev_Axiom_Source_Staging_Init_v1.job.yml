@@ -15,21 +15,7 @@ resources:
               - pandi.anbu@zeb.co
             on_failure:
               - pandi.anbu@zeb.co
-        - task_key: Axiom_to_Tableau_DataLoad
-          depends_on:
-            - task_key: NB_FlatFile_Axiom_Init
-          run_job_task:
-            job_id: 105086059685487
-        - task_key: Silver_Data_Load
-          depends_on:
-            - task_key: NB_FlatFile_Axiom_Init
-          run_job_task:
-            job_id: 1081670515054331
-        - task_key: Axiom_to_LIDAC_Dataload
-          depends_on:
-            - task_key: NB_FlatFile_Axiom_Init
-          run_job_task:
-            job_id: 333988434197016
+  
       job_clusters:
         - job_cluster_key: NB_FlatFile_Axiom_Init_cluster
           new_cluster:
@@ -57,6 +43,4 @@ resources:
         Source: Axiom
       queue:
         enabled: true
-      run_as:
-        user_name: dfiery@amalgamatedbank.com
       performance_target: PERFORMANCE_OPTIMIZED

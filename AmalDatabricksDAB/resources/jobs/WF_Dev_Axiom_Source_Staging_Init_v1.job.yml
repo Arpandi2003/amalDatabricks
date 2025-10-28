@@ -6,7 +6,7 @@ resources:
       tasks:
         - task_key: NB_FlatFile_Axiom_Init
           notebook_task:
-            notebook_path: ${bundle.name}/AB_Notebooks/DataPlatform/Extraction/NB_FlatFile_Axiom_Extraction.py
+            notebook_path: ../../DataPlatform/Extraction/NB_FlatFile_Axiom_Extraction.py
             base_parameters:
               DO_YOU_WANNA_TEST(YES/NO): "YES"
           min_retry_interval_millis: 900000

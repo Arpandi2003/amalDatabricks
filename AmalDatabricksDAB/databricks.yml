@@ -10,7 +10,7 @@ include:
 artifacts:
   notebooks:
     files:
-      - source: AB_Notebooks/DataPlatform/**/*
+      - source: DataPlatform/**/*
 
 targets:
   dev:
@@ -44,7 +44,6 @@ targets:
       service_principal_name: a7923e63-e14c-4c32-87cc-e89e3b4a165a
 
     presets:
-      name_prefix: "[uat]_"
       source_linked_deployment: false
       tags:
         amal_owner: DataEngineering
@@ -72,7 +71,6 @@ targets:
       service_principal_name: a7923e63-e14c-4c32-87cc-e89e3b4a165a
 
     presets:
-      name_prefix: "[prod]_"
       tags:
         amal_owner: DataEngineering
         Environment: Prod

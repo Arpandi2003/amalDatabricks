@@ -3,3 +3,6 @@ variables:
     default: ab_dev_catalog
   email_notifications:
     default: pandi.anbu@zeb.co
+  git_branch:
+    default: dev
+  

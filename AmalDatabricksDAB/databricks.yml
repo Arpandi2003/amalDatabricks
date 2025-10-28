@@ -53,7 +53,9 @@ targets:
       catalog_name:
         default: ab_uat_catalog
       email_notifications:
-        default: dataengineering-team@avatest.in
+        default: pandi.anbu@zeb.co
+      git_branch:
+        default: qa
 
     workspace:
       host: https://adb-201068313543333.13.azuredatabricks.net
@@ -80,6 +82,8 @@ targets:
         default: ab_prod_catalog
       email_notifications:
         default: pandi.anbu@zeb.co
+      git_branch:
+        default: prod
 
     workspace:
       host: https://adb-201068313543333.13.azuredatabricks.net

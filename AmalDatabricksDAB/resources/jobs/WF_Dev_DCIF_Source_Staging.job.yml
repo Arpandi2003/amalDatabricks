@@ -1,0 +1,55 @@
+resources:
+  jobs:
+    WF_Dev_DCIF_Source_Staging:
+      name: ${bundle.target}_WF_Dev_DCIF_Source_Staging
+      tasks:
+        - task_key: Load_DCIF_Dev
+          notebook_task:
+            notebook_path: ../../DataPlatform/Extraction/NB_FlatFile_DMI_Extraction.py
+            base_parameters:
+              DO_YOU_WANNA_TEST(YES/NO): "YES"
+          job_cluster_key: Job_cluster
+          min_retry_interval_millis: 900000
+          email_notifications:
+            on_success:
+              - ${var.email_notifications}
+            on_failure:
+              - ${var.email_notifications}
+              
+        - task_key: FlatFile_MoveMent
+          depends_on:
+            - Load_DCIF_Dev
+          notebook_task:
+            notebook_path: ../../DataPlatform/Extraction/NB_FlatFile_Movement.py
+            base_parameters:
+              SubjectArea: DMI
+          job_cluster_key: Job_cluster
+          min_retry_interval_millis: 900000
+          email_notifications:
+            on_success:
+              - ${var.email_notifications}
+            on_failure:
+              - ${var.email_notifications}
+              
+      job_clusters:
+        - job_cluster_key: Job_cluster
+          new_cluster:
+            spark_version: 15.4.x-scala2.12
+            azure_attributes:
+              first_on_demand: 1
+              availability: ON_DEMAND_AZURE
+              spot_bid_max_price: -1
+            node_type_id: Standard_D4ds_v5
+            spark_env_vars:
+              PYSPARK_PYTHON: /databricks/python3/bin/python3
+            enable_elastic_disk: true
+            data_security_mode: SINGLE_USER
+            runtime_engine: STANDARD
+            num_workers: 2
+        
+      tags:
+        Source: DMI
+        Environment: ${bundle.target}
+        
+      format: MULTI_TASK
+      max_concurrent_runs: 1

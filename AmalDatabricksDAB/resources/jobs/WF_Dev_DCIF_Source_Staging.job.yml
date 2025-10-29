@@ -1,7 +1,7 @@
 resources:
   jobs:
     WF_Dev_DCIF_Source_Staging:
-      name: ${bundle.target}_WF_Dev_DCIF_Source_Staging
+      name: WF_Dev_DCIF_Source_Staging
       tasks:
         - task_key: Load_DCIF_Dev
           notebook_task:

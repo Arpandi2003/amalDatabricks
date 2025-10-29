@@ -2,7 +2,7 @@
 resources:
   jobs:
     WF_Dev_Axiom_Source_Staging_Init_v1:
-      name: ${bundle.target}_WF_Axiom_Source_Staging_Init_v1
+      name: WF_Axiom_Source_Staging_Init_v1
       tasks:
         - task_key: NB_FlatFile_Axiom_Init
           notebook_task:

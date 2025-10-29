@@ -1,7 +1,7 @@
 resources:
   jobs:
     WF_Dev_H360_TDW_Source_Staging_Batch_2_3_V1:
-      name: ${bundle.target}_WF_Dev-H360/TDW_Source_Staging_Batch-2/3_V1
+      name: WF_Dev-H360/TDW_Source_Staging_Batch-2/3_V1
       email_notifications:
         on_failure:
           - ${var.email_notifications}

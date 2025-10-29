@@ -59,6 +59,7 @@ targets:
 
     workspace:
       host: https://adb-201068313543333.13.azuredatabricks.net
+      root_path: /Workspace/${bundle.target}
 
     permissions:
       - group_name: DataEngineering
@@ -87,6 +88,7 @@ targets:
 
     workspace:
       host: https://adb-201068313543333.13.azuredatabricks.net
+      root_path: /Workspace/${bundle.target}
 
     permissions:
       - user_name: a7923e63-e14c-4c32-87cc-e89e3b4a165a

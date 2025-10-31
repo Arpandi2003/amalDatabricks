@@ -1,11 +1,5 @@
 name: Databricks Notebooks Deployment
 
-on:
-  push:
-    branches:
-      - main
-      - dev
-
 jobs:
   deploy-notebooks:
     runs-on: windows-latest

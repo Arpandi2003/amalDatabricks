@@ -1,5 +1,11 @@
 name: Databricks Notebooks Deployment
 
+on:
+  push:
+    branches:
+      - main
+      - feature_dab
+
 jobs:
   deploy-notebooks:
     runs-on: windows-latest
